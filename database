@@ -1,1 +1,46 @@
-Se adjunta script para la creación de la base de datos y tablas.
+CREATE DATABASE datadex_db;
+USE datadex_db;
+
+
+-- Tabla de tipos --
+CREATE TABLE tipos (
+    id_tipo INT PRIMARY KEY,
+    nombre_tipo VARCHAR(50) NOT NULL
+);
+
+-- Tabla principal de pokemon --
+CREATE TABLE pokemon (
+    id_pokemon INT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    generacion INT,
+    es_legendario TINYINT(1), -- 0 para falso, 1 para verdadero
+    altura_m FLOAT,
+    peso_kg FLOAT,
+    probabilidad_de_captura INT,
+    clasificacion VARCHAR(100)
+);
+
+-- Tabla de estadísticas --
+CREATE TABLE estadisticas (
+    id_pokemon INT PRIMARY KEY,
+    puntos_salud INT,
+    ataque INT,
+    defensa INT,
+    ataque_especial INT,
+    defensa_especial INT,
+    velocidad INT,
+    total_base INT,
+    FOREIGN KEY (id_pokemon) REFERENCES pokemon(id_pokemon) ON DELETE CASCADE
+);
+
+-- Esta tabla une a un pokemon con sus tipos (fuego, agua, etc.) --
+CREATE TABLE pokemon_tipo (
+    id_pokemon INT,
+    id_tipo INT,
+    es_tipo_principal TINYINT(1),
+    PRIMARY KEY (id_pokemon, id_tipo),
+    FOREIGN KEY (id_pokemon) REFERENCES pokemon(id_pokemon) ON DELETE CASCADE,
+    FOREIGN KEY (id_tipo) REFERENCES tipos(id_tipo) ON DELETE CASCADE
+);
+
+
