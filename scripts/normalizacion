@@ -1,0 +1,5 @@
+La base de datos se normalizó para garantizar la integridad de los datos y optimizar el almacenamiento.
+
+- Independencia de Entidades: Se separó la información biográfica (pokemon) de la numérica (estadisticas), permitiendo que la tabla principal sea más ligera para búsquedas rápidas.
+- Eliminación de Redundancia: Mediante la creación de la tabla tipos, se centralizaron los nombres de los elementos, evitando inconsistencias y facilitando actualizaciones futuras (por ejemplo, si se cambiara el nombre de un tipo, solo se haría en un lugar).
+- Relación Muchos a Muchos: Se implementó una tabla intermedia (pokemon_tipo) para gestionar que un Pokémon pueda tener uno o dos tipos, cumpliendo con las reglas de normalización para relaciones complejas.
