@@ -1,0 +1,3 @@
+# Explicación Gráfica 4: Simulación de Combate vs Tapu Lele
+**Objetivo:** Mostrar un escuadrón táctico de 4 Pokémon capaces de derrotar al legendario Tapu Lele, justificando sus fortalezas.
+**Justificación de Diseño:** Se optó por una gráfica de barras horizontales acumulativas. En lugar de solo mostrar estadísticas planas, la gráfica ilustra el **Porcentaje de Aportación a la Victoria** de cada Pokémon, sumando un contundente 95% de éxito. Se integró la información adicional (Habilidades y Rol estratégico) directamente en el área de trazado para que el cliente pueda evaluar el "porqué" de un solo vistazo sin tener que cruzar datos con otras tablas.
