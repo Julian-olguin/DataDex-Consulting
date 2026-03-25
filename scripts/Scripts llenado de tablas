@@ -1,0 +1,6 @@
+Para el llenado de la base de datos, se optó por una migración masiva de datos desde archivos de texto plano (CSV). Aunque el siguiente script muestra la lógica mediante el comando LOAD DATA, el procedimiento se ejecutó a través del Table Data Import Wizard de MySQL Workbench.
+
+Lógica del script: 
+- Eficiencia y Volumen: Debido a que el dataset de Pokémon contiene cientos de registros, el uso de sentencias INSERT individuales sería ineficiente. Este método permite procesar grandes volúmenes de datos de forma atómica.
+- Compatibilidad de Entorno: Se utilizó el asistente visual para evitar restricciones de seguridad del sistema operativo y del servidor MySQL (como la variable secure-file-priv), garantizando la integridad de los datos sin modificar configuraciones críticas del servidor.
+- Mapeo de Tipos: El método permitió validar que los tipos de datos en los CSV (como los valores mixtos en la probabilidad de captura) se integraran correctamente con la estructura de las tablas definidas."
