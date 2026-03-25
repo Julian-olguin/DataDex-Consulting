@@ -2,10 +2,10 @@
 # Proyecto: Enciclopedia Pokémon
 # Gráfica: Comparativa de Fortalezas (Ataque) vs Debilidades (Defensa) de los Mejores Pokémon por Tipo
 
-# 1. INSTALACIÓN Y CARGA DE LIBRERÍAS (Ejecutar si no se tienen)
+# 1. INSTALACIÓN Y CARGA DE LIBRERÍAS
 install.packages("ggplot2")
-install.packages("tidyr") # Para formatear los datos (largo/ancho)
-install.packages("dplyr") # Para manipular datos
+install.packages("tidyr") 
+install.packages("dplyr") 
 
 library(ggplot2)
 library(tidyr)
@@ -26,7 +26,6 @@ df_pokemon_combat <- data.frame(
 
 # ==============================================================================
 # 3. PREPARACIÓN DE DATOS PARA GGPLOT (Normalización)
-# ggplot requiere datos en formato "largo" (long format) para agrupar barras
 # ==============================================================================
 
 df_long <- df_pokemon_combat %>%
@@ -68,7 +67,7 @@ grafica_comparativa <- ggplot(df_long, aes(x = ejex_label, y = stat_value, fill 
        y = "Puntos de Estadística Base",
        fill = "Métrica de Combate") +
   
-  # TEMA Y ESTILO (Profesional y Limpio)
+  # TEMA Y ESTILO 
   theme_minimal() +
   theme(
     text = element_text(family = "sans"),
@@ -91,5 +90,5 @@ grafica_comparativa <- ggplot(df_long, aes(x = ejex_label, y = stat_value, fill 
 # ==============================================================================
 print(grafica_comparativa)
 
-# Para guardar la imagen profesionalmente para el repositorio
+# Para guardar la imagen
 ggsave("docs/assets/grafica_comparativa_fortalezas.png", grafica_comparativa, width = 10, height = 7, dpi = 300)
